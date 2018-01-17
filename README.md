@@ -12,8 +12,8 @@ git remote -v
 
 git checkout -b NAME
 
-git add --all
+git add --all       git add .
 
-git commit -a -m "COMENTARIO"
+git commit -m "COMENTARIO"
 
 git push origin HEAD

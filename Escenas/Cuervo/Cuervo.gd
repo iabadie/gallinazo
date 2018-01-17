@@ -1,20 +1,14 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 var Direccion = 1 # -1 = izquierda/ 1 = derecha
 var Velocidad = 200
+
+var GRAVEDAD = 250
 
 var distancia = Vector2()
 var velocidad = Vector2()
 
 var animacionActiva = false
-
-var cont =0
-
-
 
 func _ready():
 	set_physics_process(true)
@@ -22,13 +16,24 @@ func _ready():
 	
 func _physics_process(delta):
 	
-	if cont > 20:
+	#gravedad 
+	velocidad.y += GRAVEDAD * delta
+	
+	#TestColicion
+	
+	#movimiento
+	
+	distancia.x = Velocidad*delta
+	
+	velocidad.x = (Direccion * distancia.x)/delta
+	
+	if(!test_move(Transform2D(0,get_global_position()),Vector2((32*Direccion),1))):
 		Direccion = -Direccion
-		cont =0
+		velocidad.x = (Direccion * distancia.x)/delta
 		animacionActiva = false
-		pass
-	else:
-		cont +=1
+		
+		#set_global_position(Vector2(get_global_position().x + (3 * Direccion) ,get_global_position().y))
+		
 		pass
 	
 	if Direccion > 0 && !animacionActiva:
@@ -39,11 +44,9 @@ func _physics_process(delta):
 		get_node("AnimationPlayer").play("Izquierda")
 		animacionActiva = true
 		pass
-		
-	distancia.x = Velocidad*delta
 	
-	velocidad.x = (Direccion * distancia.x)/delta
 	
 	move_and_slide(velocidad,Vector2(0,-1))
+	#set_linear_velocity(velocidad)
 	
 	pass
