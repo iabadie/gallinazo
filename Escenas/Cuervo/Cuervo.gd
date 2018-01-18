@@ -14,6 +14,29 @@ func _ready():
 	set_physics_process(true)
 	pass
 	
+func _physics_process2(delta):
+	var valor =Vector3()
+	valor = SingletonIAEnemigos.MovimientoCuervo(delta,Direccion,Transform2D(0,get_global_position()))
+	
+	if Direccion != valor.z:
+		animacionActiva = false
+		pass
+		
+	Direccion = valor.z
+	
+	if Direccion > 0 && !animacionActiva:
+		get_node("AnimationPlayer").play("Derecha")
+		animacionActiva = true
+		pass
+	elif Direccion < 0 && !animacionActiva:
+		get_node("AnimationPlayer").play("Izquierda")
+		animacionActiva = true
+		pass
+		
+	move_and_slide(Vector2(valor.x,valor.y),Vector2(0,-1))
+	
+	pass
+	
 func _physics_process(delta):
 	
 	#gravedad 
