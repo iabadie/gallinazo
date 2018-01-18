@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Gallina.gd" type="Script" id=1]
+[ext_resource path="res://Texture/Gallina/1a.png" type="Texture" id=2]
+[ext_resource path="res://Texture/Gallina/3.png" type="Texture" id=3]
+[ext_resource path="res://Texture/Gallina/2a.png" type="Texture" id=4]
+[ext_resource path="res://Texture/Gallina/1.png" type="Texture" id=5]
+[ext_resource path="res://Texture/Gallina/6.png" type="Texture" id=6]
+[ext_resource path="res://Texture/Gallina/5.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "horizontal",
+"speed": 10.0
+} ]
+
+[node name="Gallina" type="Area2D" index="0"]
+
+position = Vector2( 353.697, 282.958 )
+input_pickable = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = -1.0
+angular_damp = -1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="gallina_animacion" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "horizontal"
+frame = 1
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="galllina_fisica" type="RigidBody2D" parent="." index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+applied_force = Vector2( 100, 0 )
+_sections_unfolded = [ "Applied Forces", "Linear" ]
+
+
