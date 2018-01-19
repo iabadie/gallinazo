@@ -1,16 +1,75 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Escenas/Cuervo/Cuervo.gd" type="Script" id=1]
-[ext_resource path="res://Texture/Cuervo/Pajaros.png" type="Texture" id=2]
+[ext_resource path="res://Texture/Cuervo/Pajaros.png" type="Texture" id=1]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="GDScript" id=5]
+
+script/source = "extends RigidBody2D
+
+var Direccion = 1
+
+var animacionActiva = false
+
+var Velocidad = 200
+
+
+var distancia = Vector2()
+var velocidad = Vector2()
+
+
+func _integrate_forces( state ):
+	if abs(state.get_linear_velocity().x) < 0.2 :
+		Direccion = -Direccion
+		var animacionActiva = false
+		if Direccion > 0:
+			get_node(\"AnimationPlayer\").play(\"Derecha\")
+			animacionActiva = true
+			pass
+		else:
+			get_node(\"AnimationPlayer\").play(\"Izquierda\")
+			animacionActiva = true
+			pass
+		
+		pass
+	pass
+
+func _ready():
+	set_physics_process(true)
+	pass
+	
+func _physics_process(delta):
+	#gravedad 
+	velocidad.y =0 #+= GRAVEDAD * delta
+	
+	#TestColicion
+	
+	#Animacion Movimiento
+	if Direccion > 0 && !animacionActiva:
+		get_node(\"AnimationPlayer\").play(\"Derecha\")
+		animacionActiva = true
+		pass
+	elif Direccion < 0 && !animacionActiva:
+		get_node(\"AnimationPlayer\").play(\"Izquierda\")
+		animacionActiva = true
+		pass
+	
+	distancia.x = Velocidad*delta
+	
+	velocidad.x = (Direccion * distancia.x)/delta
+		
+	set_linear_velocity(velocidad)
+	
+	
+	pass
+"
+
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 22.9164
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource_name = "Derecha"
 length = 0.4
 loop = true
 step = 0.1
@@ -27,9 +86,8 @@ tracks/0/keys = {
 "values": [ 30, 31, 32, 31 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource_name = "Izquierda"
 length = 0.4
 loop = true
 step = 0.1
@@ -46,21 +104,35 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 19 ]
 }
 
-[node name="Cuervo" type="KinematicBody2D" index="0" groups=[
+[node name="Cuervo" type="RigidBody2D" index="0" groups=[
 "Enemigo",
 ]]
 
 input_pickable = true
 collision_layer = 1048575
 collision_mask = 1048575
-collision/safe_margin = 0.08
-script = ExtResource( 1 )
+mode = 2
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = SubResource( 5 )
 _sections_unfolded = [ "Angular", "Collision", "Linear", "Pickable", "Transform", "collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 vframes = 8
 hframes = 12
 frame = 19
@@ -69,7 +141,7 @@ _sections_unfolded = [ "Animation", "Region", "Transform", "Visibility", "Z" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 1.32038, -4.40127 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -79,8 +151,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Derecha = SubResource( 2 )
-anims/Izquierda = SubResource( 3 )
+anims/Derecha = SubResource( 3 )
+anims/Izquierda = SubResource( 4 )
 blend_times = [  ]
 autoplay = ""
 

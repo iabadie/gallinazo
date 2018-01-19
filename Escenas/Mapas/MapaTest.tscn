@@ -4,7 +4,7 @@
 [ext_resource path="res://Escenas/Mapas/Plataforma.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Escenas/Cuervo/Cuervo.tscn" type="PackedScene" id=3]
 
-[node name="MapaTest" type="Node2D" index="0"]
+[node name="MapaTest" type="Node2D"]
 
 position = Vector2( -3.4248, 44.5224 )
 
@@ -15,7 +15,7 @@ texture = ExtResource( 1 )
 
 [node name="Plataforma" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 947.52, 442.299 )
+position = Vector2( 947.52, 403.299 )
 
 [node name="Plataforma2" parent="." index="2" instance=ExtResource( 2 )]
 
@@ -27,7 +27,7 @@ position = Vector2( 631.52, 442.299 )
 
 [node name="Plataforma4" parent="." index="4" instance=ExtResource( 2 )]
 
-position = Vector2( 83.5198, 442.299 )
+position = Vector2( 83.5198, 404.191 )
 
 [node name="Plataforma5" parent="." index="5" instance=ExtResource( 2 )]
 

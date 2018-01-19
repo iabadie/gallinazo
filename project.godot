@@ -14,10 +14,6 @@ config/name="gallinazo"
 run/main_scene="res://Escenas/Mapas/MapaTest.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-SingletonIAEnemigos="*res://script/SingletonIAEnemigos.gd"
-
 [gdnative]
 
 singletons=[  ]
