@@ -2,7 +2,7 @@ extends Area2D
 
 const VELOCITY = 10
 
-var direction = 1 # direction: 1 para derecha / 0 para izquierda
+var direction = 1 # direction: 1 para derecha / -1 para izquierda
 var screenSize
 
 func _ready():
