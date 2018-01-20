@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Gallina.gd" type="Script" id=1]
+[ext_resource path="res://Escenas/Gallina/Gallina.gd" type="Script" id=1]
 [ext_resource path="res://Texture/Gallina/1a.png" type="Texture" id=2]
 [ext_resource path="res://Texture/Gallina/3.png" type="Texture" id=3]
 [ext_resource path="res://Texture/Gallina/2a.png" type="Texture" id=4]
@@ -19,7 +19,8 @@ animations = [ {
 
 [node name="Gallina" type="Area2D" index="0"]
 
-position = Vector2( 353.697, 282.958 )
+position = Vector2( 432.599, 303.363 )
+scale = Vector2( 0.5, 0.5 )
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
