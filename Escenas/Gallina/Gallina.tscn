@@ -37,7 +37,7 @@ __meta__ = {
 
 frames = SubResource( 1 )
 animation = "horizontal"
-frame = 1
+frame = 3
 playing = true
 _sections_unfolded = [ "Transform" ]
 
