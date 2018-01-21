@@ -3,7 +3,7 @@
 Kickoff del proyecto test.
 
 Para clonar el repo:
-`git clone `[http o ssh]`
+`git clone [http o ssh]`
 
 Es recomendable usar SSH. Seguir la guía de GIT para hacerlo.
 
