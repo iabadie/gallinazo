@@ -46,7 +46,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 13 ]
 }
 
-[node name="Lagarto" type="RigidBody2D" index="0"]
+[node name="Lagarto" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1

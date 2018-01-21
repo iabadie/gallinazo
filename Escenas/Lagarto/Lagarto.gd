@@ -30,7 +30,7 @@ func _integrate_forces(state):
 	if abs(state.get_linear_velocity().x) < 0.2 :
 		direccion = -direccion
 		var animacionActiva = false
-		if Direccion > 0:
+		if direccion > 0:
 			$AnimationPlayer.play("Derecha")
 			animacionActiva = true
 			pass
@@ -68,7 +68,7 @@ func _physics_process(delta):
 		pass
 	if !callendo :
 	
-		vectorVelocidad.x = (Direccion * SPEED*delta)/delta
+		vectorVelocidad.x = (direccion * SPEED*delta)/delta
 		
 		pass
 		
