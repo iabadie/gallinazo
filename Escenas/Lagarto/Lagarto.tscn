@@ -1,95 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Texture/Lagarto/lizard.png" type="Texture" id=1]
-
-[sub_resource type="GDScript" id=4]
-
-script/source = "extends RigidBody2D
-
-var Direccion = 1
-
-var Speed = 100
-
-var animacionActiva = false
-
-
-var distancia = Vector2()
-var velocidad = Vector2()
-
-var Gravedad = 100
-
-var Callendo = false
-
-func _integrate_forces(state):
-	
-	if !$RayCastDerecha.is_colliding() :
-		Direccion = -1
-		get_node(\"AnimationPlayer\").play(\"Izquierda\")
-		animacionActiva = true
-		pass
-	elif !$RayCastIzquierda.is_colliding() :
-		Direccion = 1
-		get_node(\"AnimationPlayer\").play(\"Derecha\")
-		animacionActiva = true
-		pass
-	
-	
-	if abs(state.get_linear_velocity().x) < 0.2 :
-		Direccion = -Direccion
-		var animacionActiva = false
-		if Direccion > 0:
-			get_node(\"AnimationPlayer\").play(\"Derecha\")
-			animacionActiva = true
-			pass
-		else:
-			get_node(\"AnimationPlayer\").play(\"Izquierda\")
-			animacionActiva = true
-			pass
-		
-		pass
-	
-	if state.get_linear_velocity().y < 0.2 :
-		Callendo = false
-		pass
-	else:
-		Callendo = true
-		pass
-	pass
-
-func _ready():
-	set_physics_process(true)
-	pass
-
-func _physics_process(delta):
-	#gravedad 
-	velocidad.y = 0
-	velocidad.x = 0
-	
-	#TestColicion
-	
-	#Animacion Movimiento
-	if Direccion > 0 && !animacionActiva:
-		get_node(\"AnimationPlayer\").play(\"Derecha\")
-		animacionActiva = true
-		pass
-	elif Direccion < 0 && !animacionActiva:
-		get_node(\"AnimationPlayer\").play(\"Izquierda\")
-		animacionActiva = true
-		pass
-	if !Callendo :
-		
-	
-		distancia.x = Speed*delta
-	
-		velocidad.x = (Direccion * distancia.x)/delta
-		
-		pass
-		
-		set_linear_velocity(velocidad)
-	pass
-
-
-"
+[ext_resource path="res://Escenas/Lagarto/Lagarto.gd" type="Script" id=1]
+[ext_resource path="res://Texture/Lagarto/lizard.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -134,7 +46,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 13 ]
 }
 
-[node name="Lagarto" type="RigidBody2D"]
+[node name="Lagarto" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -154,13 +66,13 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = SubResource( 4 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Pickable", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 vframes = 8
 hframes = 12
 frame = 25
