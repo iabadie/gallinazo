@@ -97,18 +97,19 @@ autoplay = "Derecha"
 
 [node name="RayCastIzquierda" type="RayCast2D" parent="." index="3"]
 
-position = Vector2( -36.4574, 10.355 )
+position = Vector2( -40, 10 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 20 )
+cast_to = Vector2( -3, 25 )
 collision_mask = 1048575
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="RayCastDerecha" type="RayCast2D" parent="." index="4"]
 
-position = Vector2( 36.8102, 10.3243 )
+position = Vector2( 40, 10 )
 enabled = true
 exclude_parent = true
-cast_to = Vector2( 0, 20 )
+cast_to = Vector2( 3, 25 )
 collision_mask = 1048575
 _sections_unfolded = [ "Transform", "Z Index" ]
 
