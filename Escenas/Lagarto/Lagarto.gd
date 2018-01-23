@@ -22,7 +22,7 @@ func _integrate_forces(state):
 	
 	if abs(state.get_linear_velocity().x) < 0.2 :
 		direccion = -direccion
-		var animacionActiva = false
+		animacionActiva = false
 		if direccion > 0:
 			$AnimationPlayer.play("Derecha")
 			animacionActiva = true
