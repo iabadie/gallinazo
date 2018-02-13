@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Texture/UI/left.png" type="Texture" id=1]
+[ext_resource path="res://Texture/UI/right.png" type="Texture" id=2]
+[ext_resource path="res://Texture/UI/jump.png" type="Texture" id=3]
+
+[node name="ui" type="CanvasLayer"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="touchLeft" type="TouchScreenButton" parent="." index="0"]
+
+position = Vector2( 74.4178, 495.783 )
+normal = ExtResource( 1 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "move_left"
+visibility_mode = 0
+
+[node name="touchRight" type="TouchScreenButton" parent="." index="1"]
+
+position = Vector2( 178.768, 496.552 )
+normal = ExtResource( 2 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "move_right"
+visibility_mode = 0
+
+[node name="touchJump" type="TouchScreenButton" parent="." index="2"]
+
+position = Vector2( 919.16, 492.766 )
+normal = ExtResource( 3 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "jump"
+visibility_mode = 0
+
+
