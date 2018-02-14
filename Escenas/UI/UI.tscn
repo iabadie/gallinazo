@@ -4,7 +4,7 @@
 [ext_resource path="res://Texture/UI/right.png" type="Texture" id=2]
 [ext_resource path="res://Texture/UI/jump.png" type="Texture" id=3]
 
-[node name="ui" type="CanvasLayer"]
+[node name="ui" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -15,7 +15,7 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="touchLeft" type="TouchScreenButton" parent="." index="0"]
 
-position = Vector2( 74.4178, 495.783 )
+position = Vector2( 80, 500 )
 normal = ExtResource( 1 )
 pressed = null
 bitmask = null
@@ -25,10 +25,11 @@ shape_visible = true
 passby_press = false
 action = "move_left"
 visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
 
 [node name="touchRight" type="TouchScreenButton" parent="." index="1"]
 
-position = Vector2( 178.768, 496.552 )
+position = Vector2( 200, 500 )
 normal = ExtResource( 2 )
 pressed = null
 bitmask = null
@@ -38,10 +39,11 @@ shape_visible = true
 passby_press = false
 action = "move_right"
 visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
 
 [node name="touchJump" type="TouchScreenButton" parent="." index="2"]
 
-position = Vector2( 919.16, 492.766 )
+position = Vector2( 820, 500.769 )
 normal = ExtResource( 3 )
 pressed = null
 bitmask = null
@@ -51,5 +53,6 @@ shape_visible = true
 passby_press = false
 action = "jump"
 visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
 
 

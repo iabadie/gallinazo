@@ -2,3 +2,4 @@
 default_env.tres
 *.import
 *.exe
+debug.keystore
