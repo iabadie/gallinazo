@@ -23,7 +23,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 42.8093, 35.3444 )
 
-[node name="Gallina" type="KinematicBody2D" index="0"]
+[node name="Gallina" type="KinematicBody2D"]
 
 position = Vector2( -0.436722, 0 )
 input_pickable = false
@@ -31,13 +31,14 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Linear", "Transform" ]
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Pickable", "Transform", "collision" ]
 
 [node name="gallina_animacion" type="AnimatedSprite" parent="." index="0"]
 
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "horizontal"
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -47,6 +48,20 @@ position = Vector2( 0, 1 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="ui" parent="." index="2" instance=ExtResource( 8 )]
+[node name="Area2D" type="Area2D" parent="." index="2"]
 
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
+[node name="AreaColision" type="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ui" parent="." index="3" instance=ExtResource( 8 )]
