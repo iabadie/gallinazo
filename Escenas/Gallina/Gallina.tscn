@@ -38,7 +38,6 @@ _sections_unfolded = [ "Angular", "Applied Forces", "Linear", "Transform" ]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "horizontal"
-frame = 4
 playing = true
 _sections_unfolded = [ "Transform" ]
 

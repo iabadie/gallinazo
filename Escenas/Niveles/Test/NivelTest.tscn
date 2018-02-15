@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Escenas/Mapas/Pared1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenas/Mapas/Plataforma.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Mapas/Plataforma_Traspasa.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Gallina/Gallina.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Texture/Backgrounds/depositphotos_88687274-stock-photo-cartoon-farm-scene-with-wooden.jpg" type="Texture" id=5]
+[ext_resource path="res://Escenas/UI/Camara.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Escenas/Lagarto/Lagarto.tscn" type="PackedScene" id=7]
+
+[node name="NivelTest" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Plataformas" type="Node" parent="." index="0"]
+
+[node name="Pared1" parent="Plataformas" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 0, -140 )
+scale = Vector2( 1, 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pared2" parent="Plataformas" index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 960, -140 )
+scale = Vector2( 1, 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="piso" parent="Plataformas" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 480, 640 )
+scale = Vector2( 6, 1 )
+
+[node name="Plataforma2" parent="Plataformas" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 240, 460 )
+
+[node name="Plataforma3" parent="Plataformas" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 720, 280 )
+
+[node name="Plataforma4" parent="Plataformas" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 240, 100 )
+
+[node name="Plataforma5" parent="Plataformas" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 760, -40 )
+
+[node name="Plataforma7" parent="Plataformas" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 640, -280 )
+scale = Vector2( 6, 0.5 )
+
+[node name="Plataforma6" parent="Plataformas" index="8" instance=ExtResource( 2 )]
+
+position = Vector2( 40, -100 )
+
+[node name="Plataforma_Traspasa" parent="Plataformas" index="9" instance=ExtResource( 3 )]
+
+position = Vector2( 80, -260 )
+
+[node name="Gallina" parent="." index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 60, 580 )
+z_index = 3
+_sections_unfolded = [ "Angular", "Applied Forces", "Linear", "Transform", "Z Index" ]
+
+[node name="Background" type="Sprite" parent="." index="2"]
+
+position = Vector2( 520, -140 )
+scale = Vector2( 1, 2 )
+texture = ExtResource( 5 )
+
+[node name="Camara" parent="." index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 480, 320 )
+NUMBER_OF_FLOORS = 8
+TIME_TO_JUMP = 7
+
+[node name="Lagarto" parent="." index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 60, 60 )
+
+

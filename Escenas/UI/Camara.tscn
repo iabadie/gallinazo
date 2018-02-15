@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Escenas/UI/Camara.gd" type="Script" id=1]
 
-[node name="Camara" type="Node2D" index="0"]
+[node name="Camara" type="Node2D"]
 
 script = ExtResource( 1 )
 CAMERA_JUMP = 200
